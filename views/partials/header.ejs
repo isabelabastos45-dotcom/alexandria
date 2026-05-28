@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title><%= title %></title>
+      
+      <link rel="stylesheet" href="/stylesheets/index.css">
+      
+      <style>
+      
+      .ui.menu {
+         background: #564787;
+         border: none !important;
+         border-radius: 0 !important;
+         display: flex;
+         align-items: center;
+         padding: 0.5rem 1rem;
+         gap: 20px;
+         list-style: none;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         z-index: 1000;
+      }
+      
+      .ui.menu .item {
+         color: #efeaff !important;
+         background: transparent !important;
+         text-decoration: none !important;
+         display: inline-block;
+         transition: all 0.2s ease;
+         font-family: 'Georgia', serif;
+      }
+      
+      .ui.menu .item:hover {
+         transform: translateY(-3px);
+      }
+      
+      .right.menu {
+         margin-left: auto;
+         display: flex;
+         align-items: center;
+      }
+
+      .ui.inverted.footer { 
+         background: #564787 ;
+         color: #efeaff; 
+         padding: 0.5rem 1rem;
+         text-align: center; 
+      } 
+      
+      .ui.inverted.footer { 
+         border-radius: 0 !important; 
+         box-shadow: none !important; 
+      } 
+
+      .ui.inverted.footer { 
+         bottom: 0; 
+         left: 0; 
+         width: 100%; 
+         z-index: 1000; 
+      }
+
+      </style>
+</head>
+   
+<body>
+   <header>
+   <div class="ui inverted menu">
+      <a class="item" href="/">Início</a>
+      <a class="item" href="/works">Trabalhos</a>
+      <a class="item" href="/about">Sobre</a>
+
+      <div class="right menu">
+         <a class="item" href="/login">Entrar</a>
+      </div>
+   </div>
+</header>
+      
+   <main class="main-content">

@@ -1,0 +1,121 @@
+<%- include('partials/header', { title: 'Sobre' }) %>
+
+<style>
+body {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.titulo-principal {
+  color: #564787;
+  font-size: 40px;
+  font-family: "Stencil Std", "Stencil", fantasy;
+  letter-spacing: 1px;
+  padding: 20px;
+  padding-left: 1px;
+  padding-top: 25px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: -30px;
+}
+
+.titulo-final {
+  color: #564787;
+  font-size: 40px;
+  font-family: "Stencil Std", "Stencil", fantasy;
+  letter-spacing: 1px;
+  padding: 20px;
+  padding-left: 1px;
+  padding-top: 25px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 5px;
+}
+
+h2 {
+  font-family: 'Georgia', serif;
+  color: #00bd1f;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p{
+  font-family: 'Georgia', serif;
+  color: #564787;
+  max-width: 700px;
+  margin: 10px auto;
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.bloco,
+.mapa-site {
+  background-color: #ad9fdd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.container-duplo {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.home {
+  min-height: auto;
+}
+
+</style>
+
+<div class="main-content">
+
+  <div class="titulo-principal">
+    Sobre Alexandria!
+  </div>
+  <div class="container-duplo">
+
+    <div class="bloco">
+      <p>
+        Alexandria foi criado para um projeto escolar de Programação Web II, ministrada pelo professor José Roberto Bezerra.
+      </p>
+      <p>
+        Nomeado como uma referência à Bilioteca de Alexandria, o site vem para servir como repositório de histórias feitas de fã para fã,
+        sem intuito monetário, apenas com o objetivo de lazer e diversão.
+      </p>
+      <p>
+        Permite que os usuários criem contas, logem e postem suas próprias histórias. Além de poder ler as histórias feitas por outros usuários.
+      </p>
+    </div>
+    
+    <div class="mapa-site">
+      <p>Um pequeno guia por nosso site! 
+      </p>
+      <p>- Em <a href="/" class="btn-voltar">Início</a> você tera uma introdução simples sobre a ideia do site, além de notícias e atualizações.
+      </p>
+      <p>- Em <a href="/works" class="btn-works">Trabalhos</a> estão localizadas as criações feitas aqui, tome um tempo e leia as diversas histórias!.
+      </p>
+      <p>- Em <a href="/login" class="btn-login">Entrar</a> você podera se inscrever no site para postar seus próprios trabalhos e favoritar a criação de outros usuários.
+      </p>
+    </div>
+  </div>
+
+  <div class="titulo-final">
+    Desejamos uma boa experiência!
+  </div>
+
+</div>
+
+<%- include('partials/footer') %>

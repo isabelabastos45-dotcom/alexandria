@@ -1,0 +1,92 @@
+<%- include('partials/header', { title: 'Home' }) %>
+
+<style>
+body {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.titulo-principal {
+  color: #564787;
+  font-size: 40px;
+  font-family: "Stencil Std", "Stencil", fantasy;
+  letter-spacing: 1px;
+  padding: 20px;
+  padding-left: 1px;
+  padding-top: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Georgia', serif;
+  color: #00bd1f;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: 'Georgia', serif;
+  color: #564787;
+  max-width: 700px;
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: justify;
+  margin: 10px 0;
+  margin-top: 20px;
+}
+
+.bloco {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1300px;
+  margin: 30px auto;
+  padding: 25px 20px;
+  background-color: #ad9fdd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  gap: 40px;
+}
+
+.titulo {
+  flex: 1;
+}
+
+.texto {
+  flex: 2;
+}
+
+.titulo-principal {
+  text-align: center;
+}
+
+.home {
+  min-height: auto;
+}
+
+</style>
+
+  <div class="bloco">
+
+    <div class="titulo">
+      <h2 class="titulo-principal">Bem-vindo à Alexandria!</h2>
+    </div>
+
+    <div class="texto">
+    <p>
+      Nós somos um site sem fins lucrativos com o intuito de armazenar, guardar e difundir a propagação de
+      histórias feitas de fãs para fãs sem custo monetário.
+      Explore nossas páginas, e
+      <a href="/signup">Inscreva-se</a> para poder ler e salvar as suas histórias!
+    </p>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
