@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const userController = require('../controllers/userController');
-
-router.post('/', userController.create);
+router.post('/', async (req, res) => {
+    return res.json({ msg: "ok" });
+});
 
 module.exports = router;

@@ -1,19 +1,14 @@
 const express = require("express");
 const router = express.Router();
-
 const User = require("../models/User");
-
 const bcrypt = require("bcryptjs");
 
-// =========================
-// REGISTER
-// =========================
 router.post("/register", async (req, res) => {
+    console.log("BODY RECEBIDO:", req.body);
     try {
+        const { username, email, senha } = req.body;
 
-        const { nome, username, email, senha } = req.body;
-
-        if (!nome || !username || !email || !senha) {
+        if (!username || !email || !senha) {
             return res.status(400).json({
                 msg: "Todos os campos são obrigatórios"
             });
@@ -26,7 +21,6 @@ router.post("/register", async (req, res) => {
         }
 
         const emailExiste = await User.findOne({ email });
-
         if (emailExiste) {
             return res.status(400).json({
                 msg: "E-mail já cadastrado"
@@ -34,18 +28,15 @@ router.post("/register", async (req, res) => {
         }
 
         const usernameExiste = await User.findOne({ username });
-
         if (usernameExiste) {
             return res.status(400).json({
                 msg: "Username já está em uso"
             });
         }
 
-        // criptografar senha
         const senhaHash = await bcrypt.hash(senha, 10);
 
         const novoUsuario = new User({
-            nome,
             username,
             email,
             senha: senhaHash
@@ -58,32 +49,25 @@ router.post("/register", async (req, res) => {
         });
 
     } catch (err) {
-
         return res.status(500).json({
             erro: err.message
         });
-
     }
 });
 
-// =========================
-// LOGIN
-// =========================
+
 router.post("/login", async (req, res) => {
 
     try {
-
         const { email, senha } = req.body;
 
         const usuario = await User.findOne({ email });
-
         if (!usuario) {
             return res.status(400).json({
                 msg: "Usuário não encontrado"
             });
         }
 
-        // comparar senha
         const senhaOk = await bcrypt.compare(
             senha,
             usuario.senha
@@ -95,78 +79,50 @@ router.post("/login", async (req, res) => {
             });
         }
 
-    
-
-        // =========================
-        // SALVAR SESSÃO
-        // =========================
         req.session.usuario = {
             id: usuario._id,
-            nome: usuario.nome,
+            nome: usuario.username,
             username: usuario.username,
             email: usuario.email
         };
 
         req.session.save((err) => {
-
             if (err) {
-
                 console.error("Erro ao salvar sessão:", err);
-
                 return res.status(500).json({
                     msg: "Erro ao processar login"
                 });
-
             }
 
             return res.json({
                 msg: "Logado com sucesso!",
                 usuario: req.session.usuario
             });
-
         });
-
     } catch (err) {
-
-        return res.status(500).json({
-            erro: err.message
-        });
-
-    }
-
+    console.log("ERRO REAL:", err);
+    return res.status(500).json({
+        erro: err.message
+    });
+}
 });
 
-// =========================
-// LOGOUT
-// =========================
 router.get("/logout", (req, res) => {
-
     if (req.session) {
-
         req.session.destroy((err) => {
-
             if (err) {
-
                 console.error("Erro ao destruir sessão:", err);
-
                 return res.status(500).json({
                     msg: "Erro ao tentar deslogar."
                 });
-
             }
 
-            res.clearCookie("fixly.sid");
-
+            res.clearCookie("alexandria.sid");
             return res.redirect("/");
-
         });
-
     } else {
-
         return res.redirect("/");
-
     }
-
 });
 
 module.exports = router;
