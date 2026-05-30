@@ -13,6 +13,8 @@ var authRouter = require('./routes/auth');
 var profileRouter = require('./routes/profile');
 var loginRouter = require('./routes/login');
 var worksRouter = require('./routes/works');
+var logoutRouter = require('./routes/logout');
+var publishworksRouter = require('./routes/publishworks');
 
 var connectDatabase = require('./database/db');
 
@@ -58,6 +60,11 @@ app.use(session({
   }
 }));
 
+app.use((req, res, next) => {
+    res.locals.user = req.session?.usuario || null;
+    next();
+});
+
 app.use('/', indexRouter);
 app.use('/about', aboutRouter);
 app.use('/signup', signupRouter);
@@ -66,6 +73,8 @@ app.use('/profile', profileRouter);
 app.use('/login', loginRouter);
 app.use('/users', usersRouter);
 app.use('/works', worksRouter);
+app.use('/logout', logoutRouter);
+app.use('/publishworks', publishworksRouter);
 
 app.use((req, res) => {
   res.status(404).send(

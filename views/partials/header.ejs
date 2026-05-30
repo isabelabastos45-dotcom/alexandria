@@ -41,7 +41,9 @@
          margin-left: auto;
          display: flex;
          align-items: center;
+         gap: 20px;
       }
+
 
       .ui.inverted.footer { 
          background: #564787 ;
@@ -67,15 +69,23 @@
    
 <body>
    <header>
-   <div class="ui inverted menu">
-      <a class="item" href="/">Início</a>
-      <a class="item" href="/works">Trabalhos</a>
-      <a class="item" href="/about">Sobre</a>
-
-      <div class="right menu">
-         <a class="item" href="/login">Entrar</a>
-      </div>
-   </div>
-</header>
-      
-   <main class="main-content">
+      <div class="ui inverted menu">
+         <a class="item" href="/">Início</a>
+         <a class="item" href="/about">Sobre</a>
+         <a class="item" href="/works">Trabalhos</a>
+         
+         <% if (user) { %>
+            <a class="item" href="/publishworks">Postar trabalho</a>
+            <div class="right menu">
+               <a class="item" href="/profile">Perfil</a>
+               <a class="item" href="/logout">Sair</a>
+            </div>
+            
+            <% } else { %>
+               <div class="right menu">
+                  <a class="item" href="/login">Entrar</a>
+               </div>
+               <% } %>
+            </div>
+         </header>
+         <main class="main-content">

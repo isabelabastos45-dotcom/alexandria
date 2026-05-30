@@ -2,16 +2,16 @@
 
 <style>
   body {
-    background: linear-gradient(180deg, #74b9ff 0%, #dfefff 60%, #ffffff 100%);
-    background-attachment: fixed;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
-
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+ 
   .perfil-container {
-    background: rgba(255, 255, 255, 0.9);
+    background: #ad9fdd;
     max-width: 550px;
     margin: 60px auto 100px auto;
     padding: 40px;
@@ -22,14 +22,13 @@
   }
 
   .perfil-container h1 {
-    font-family: 'Merriweather', serif;
-    color: #104488;
+    font-family: 'Georgia', serif;
+    color: #564787;
     font-size: 32px;
     margin-top: 0;
     margin-bottom: 20px;
   }
 
-  /* --- Círculo da Foto de Perfil --- */
   .avatar-container {
     margin-bottom: 15px;
     position: relative;
@@ -41,33 +40,43 @@
     height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #74b9ff;
+    border: 4px solid #ad9fdd;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    background-color: #e3f2fd;
+    background-color: #ad9fdd;
   }
 
-  /* --- Estilização do Botão de Escolher Arquivo --- */
-  .foto-form {
-    margin-bottom: 30px;
+  #foto-form {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    color: #efeaff ; 
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #564787;
+    font-weight: bold;
+    transition: background 0.2s ease;
+    font-family: 'Georgia', serif;
   }
 
-  /* Esconde o input feio padrão do sistema */
+  /*#loginForm button:hover {
+  background-color: #33255f;
+}*/
+
   #input-file-foto {
     display: none;
   }
 
-  /* Cria um botão bonito combinando com o Fixly */
   .label-upload {
-    display: inline-block;
-    background: #104488;
-    color: white;
-    padding: 10px 20px;
+    padding: 15px 25px;
+    border: none;
     border-radius: 8px;
+    color: #efeaff ; 
+    font-size: 18px;
     cursor: pointer;
+    background-color: #564787;
     font-weight: bold;
-    font-size: 14px;
-    transition: background 0.2s, transform 0.1s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background 0.2s ease;
+    font-family: 'Georgia', serif;
   }
 
   .label-upload:hover {
@@ -139,6 +148,31 @@
     background-color: #e74c3c;
     color: white;
   }
+
+
+
+  
+
+
+
+/*.form-footer {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #564787;
+  font-weight: bold;
+}
+
+.form-footer a {
+  color: #33255f;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.form-footer a:hover {
+  color: #564787;
+  text-decoration: underline;
+}*/
 </style>
 
 <div class="perfil-container">

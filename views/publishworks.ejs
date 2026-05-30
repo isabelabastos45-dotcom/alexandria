@@ -1,0 +1,76 @@
+ <%- include('partials/header', { title: 'Postar trabalho' }) %>
+
+<style>
+body {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.titulo-principal {
+  color: #564787;
+  font-size: 40px;
+  font-family: "Stencil Std", "Stencil", fantasy;
+  letter-spacing: 1px;
+  padding: 20px;
+  padding-left: 1px;
+  padding-top: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Georgia', serif;
+  color: #564787;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p{
+  font-family: 'Georgia', serif;
+  color: #564787;
+  margin: 10px auto;
+  margin-top: 35px;
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  max-width: 100%;
+}
+
+.bloco {
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  background-color: #ad9fdd;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  margin-top: -30px;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+.home {
+  min-height: auto;
+}
+
+</style>
+
+<div class="main-content">
+    <div class="bloco">
+        <h2 class="titulo-principal">Postar trabalho</h2>
+        <p>
+            Poste aqui um de seus trabalhos para que outros usuários vejam!
+        </p>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
