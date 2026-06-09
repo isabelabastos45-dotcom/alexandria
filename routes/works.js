@@ -1,8 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res) {
-  res.render('works');
+const Trabalho = require('../models/works');
+
+router.get('/', async (req, res) => {
+  const trabalhos = await Trabalho.find();
+
+  res.render('works', { trabalhos });
 });
 
 module.exports = router;

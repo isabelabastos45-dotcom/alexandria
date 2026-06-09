@@ -73,4 +73,19 @@ p{
     </div>
 </div>
 
+<div class="main-content">
+  <h2>Trabalhos Postados</h2>
+  
+  <% if (trabalhos && trabalhos.length > 0) { %>
+    <% trabalhos.forEach(trabalho => { %>
+      <div class="bloco">
+        <h2><%= trabalho.titulo %></h2>
+        <p><%= trabalho.descricao %></p>
+      </div>
+      <% }) %>
+      <% } else { %>
+        <p>Nenhum trabalho publicado ainda.</p>
+        <% } %>
+      </div>
+
 <%- include('partials/footer') %>

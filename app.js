@@ -37,7 +37,7 @@ if (isProduction) {
 
 app.use(express.json());
 app.use(express.urlencoded({
-  extended: false
+  extended: true
 }));
 
 app.use(express.static(
