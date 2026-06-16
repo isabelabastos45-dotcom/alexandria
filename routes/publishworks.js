@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
     const trabalho = new Trabalho({
       titulo: req.body.titulo,
       descricao: req.body.descricao,
+      historia: req.body.historia,
       autor: req.body.autor
     });
 

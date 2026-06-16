@@ -1,0 +1,82 @@
+<%- include('partials/header', { title: trabalho.titulo }) %>
+
+<style>
+body {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.bloco {
+  max-width: 900px;
+  width: 90%;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #ad9fdd;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  gap: 40px;
+  box-sizing: border-box;
+  margin: 100px auto 20px auto;
+}
+
+.titulo {
+  color: #564787;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.autor {
+  color: #564787;
+  margin-bottom: 25px;
+}
+
+.descricao {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.historia {
+  line-height: 1.8;
+  font-size: 18px;
+  white-space: pre-wrap;
+}
+
+.btn-voltar {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background: #564787;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+body {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.home {
+  min-height: auto;
+}
+
+</style>
+
+<div class="bloco">
+    <h1 class="titulo"><%= trabalho.titulo %></h1>
+    <div class="autor">Publicado por <%= trabalho.autor %></div>
+    <div class="descricao"><%= trabalho.descricao %></div>
+    <div class="historia"><%= trabalho.historia %></div>
+        
+    <a href="/works" class="btn-voltar">Voltar</a>
+</div>
+
+<%- include('partials/footer') %>

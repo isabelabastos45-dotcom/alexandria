@@ -19,6 +19,11 @@ const TrabalhoSchema = new mongoose.Schema({
   data: {
     type: Date,
     default: Date.now
+  },
+
+  historia: {
+    type: String,
+    required: true
   }
 });
 
