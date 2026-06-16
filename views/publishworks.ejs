@@ -64,47 +64,81 @@ p{
 
 .modal {
   display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
   background: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 9999;
 }
 
 .modal-content {
-  background: white;
-  width: 500px;
+  background: #ad9fdd;
+  width: 700px;
   max-width: 90%;
-  margin: 100px auto;
-  padding: 20px;
-  border-radius: 10px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 
 .fechar {
   float: right;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 35px;
+  color: #564787;
+  font-weight: bold;
 }
 
 input,
 textarea {
   width: 100%;
   margin-bottom: 15px;
-  padding: 10px;
+  padding: 12px;
+  border: 2px solid #efeaff;
+  border-radius: 10px;
   box-sizing: border-box;
+  font-size: 16px;
+  font-family: Georgia, serif;
 }
 
 .btn {
-  padding: 10px 20px;
+  padding: 15px 40px;
   background: #564787;
-  color: white;
+  color: #efeaff;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+  display: block;
+  margin: 30px auto;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #45366f;
+  transform: translateY(-2px);
+}
+
+.btn-publicar-modal {
+  width: 100%;
+  padding: 15px;
+  background: #564787;
+  color: #efeaff;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
 }
 
+.btn-publicar-modal:hover {
+  background: #45366f;
+}
 </style>
 
 <div class="main-content">
@@ -132,15 +166,38 @@ textarea {
       >
 
       <textarea
-        name="descricao"
-        placeholder="Descrição do trabalho"
-        required
+      name="descricao"
+      rows="3"
+      placeholder="Descrição resumida do trabalho"
+      required
+      ></textarea>
+      
+      <textarea
+      name="historia"
+      rows="12"
+      placeholder="Escreva sua história completa aqui..."
+      required
       ></textarea>
 
-      <button type="submit">Publicar</button>
+      <input type="hidden" name="autor" id="autor">
+
+      <button type="submit" class="btn-publicar-modal">Publicar Trabalho</button>
     </form>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+  console.log('Usuário salvo:', usuario);
+
+  if (usuario) {
+    document.getElementById('autor').value =
+      usuario.username || usuario.nome || usuario.email;
+  }
+});
+</script>
 
 <script src="/javascripts/publishworks.js"></script>
 

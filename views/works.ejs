@@ -62,6 +62,68 @@ p{
   min-height: auto;
 }
 
+.lista-trabalhos {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.card-trabalho {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.card-trabalho:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-trabalho h3 {
+  color: #564787;
+  font-family: Georgia, serif;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.card-trabalho p {
+  color: #444;
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.trabalho-autor {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.btn-ler {
+  display: inline-block;
+  margin-top: 20px;
+  background: #564787;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-ler:hover {
+  background: #45366f;
+}
+
+.trabalho-autor {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
 </style>
 
 <div class="main-content">
@@ -76,16 +138,16 @@ p{
 <div class="main-content">
   <h2>Trabalhos Postados</h2>
   
-  <% if (trabalhos && trabalhos.length > 0) { %>
+  <div class="lista-trabalhos">
     <% trabalhos.forEach(trabalho => { %>
-      <div class="bloco">
-        <h2><%= trabalho.titulo %></h2>
+      <div class="card-trabalho">
+        <div class="trabalho-autor">Publicado por <%= trabalho.autor %></div>
+        <h3><%= trabalho.titulo %></h3>
         <p><%= trabalho.descricao %></p>
+        <a href="/trabalho/<%= trabalho._id %>" class="btn-ler">Ler Trabalho</a>
       </div>
       <% }) %>
-      <% } else { %>
-        <p>Nenhum trabalho publicado ainda.</p>
-        <% } %>
-      </div>
+    </div>
+  </div>
 
 <%- include('partials/footer') %>

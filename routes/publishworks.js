@@ -8,14 +8,22 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  console.log('POST RECEBIDO');
+  console.log(req.body);
 
-  await Trabalho.create({
-    titulo: req.body.titulo,
-    descricao: req.body.descricao
-  });
+  try {
+    const trabalho = new Trabalho({
+      titulo: req.body.titulo,
+      descricao: req.body.descricao,
+      autor: req.body.autor
+    });
 
-  res.redirect('/works');
+    await trabalho.save();
+
+    res.redirect('/works');
+  } catch (erro) {
+    console.error(erro);
+    res.status(500).send('Erro ao publicar trabalho');
+  }
 });
 
 module.exports = router;
