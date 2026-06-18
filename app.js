@@ -1,7 +1,11 @@
+const express = require('express');
+const axios = require('axios');
+const app = express();
+const PORT = 3000;
+const path = require('path');
+
 require("dotenv").config();
 
-var express = require('express');
-var path = require('path');
 var session = require('express-session');
 var cors = require('cors');
 
@@ -17,8 +21,6 @@ var logoutRouter = require('./routes/logout');
 var publishworksRouter = require('./routes/publishworks');
 
 var connectDatabase = require('./database/db');
-
-var app = express();
 connectDatabase();
 
 app.set('views', path.join(__dirname, 'views'));

@@ -1,14 +1,35 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const axios = require('axios');
 
-router.get('/', function(req, res) {
-  // Pega o usuário direto da sessão do servidor (mude 'usuario' se a sua variável de sessão tiver outro nome)
-  var usuarioLogado = req.session && req.session.usuario ? req.session.usuario : undefined;
+const router = express.Router();
 
-  res.render('index', { 
-    title: 'Home', 
-    usuario: usuarioLogado // 👈 Enviando o usuário para o EJS saber se você está logado!
-  });
+router.get('/', async (req, res) => {
+    const usuarioLogado =
+        req.session && req.session.usuario
+            ? req.session.usuario
+            : undefined;
+
+    try {
+        const response = await axios.get(
+            'https://ron-swanson-quotes.herokuapp.com/v2/quotes'
+        );
+
+        const quote = response.data[0];
+
+        res.render('index', {
+            title: 'Home',
+            usuario: usuarioLogado,
+            quote
+        });
+    } catch (error) {
+        console.error(error);
+
+        res.render('index', {
+            title: 'Home',
+            usuario: usuarioLogado,
+            quote: 'Erro ao obter mensagem.'
+        });
+    }
 });
 
 module.exports = router;
