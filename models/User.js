@@ -12,7 +12,12 @@ const UserSchema = new mongoose.Schema({
     senha: {
         type: String,
         required: true
-    }
+    },
+    
+    favoritos: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Trabalho'
+    }]
 });
 
 module.exports = mongoose.models.User || mongoose.model('User', UserSchema);

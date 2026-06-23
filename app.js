@@ -19,6 +19,7 @@ var loginRouter = require('./routes/login');
 var worksRouter = require('./routes/works');
 var logoutRouter = require('./routes/logout');
 var publishworksRouter = require('./routes/publishworks');
+var favoritesRouter = require('./routes/favorites');
 
 var connectDatabase = require('./database/db');
 connectDatabase();
@@ -77,6 +78,7 @@ app.use('/users', usersRouter);
 app.use('/works', worksRouter);
 app.use('/logout', logoutRouter);
 app.use('/publishworks', publishworksRouter);
+app.use('/favorites', favoritesRouter);
 
 app.use((req, res) => {
   res.status(404).send(

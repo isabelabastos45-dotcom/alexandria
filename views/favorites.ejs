@@ -1,0 +1,154 @@
+<%- include('partials/header', { title: 'Favoritos' }) %>
+
+<style>
+body {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.titulo-principal {
+  color: #564787;
+  font-size: 40px;
+  font-family: "Stencil Std", "Stencil", fantasy;
+  letter-spacing: 1px;
+  padding: 20px;
+  padding-left: 1px;
+  padding-top: 25px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  font-family: 'Georgia', serif;
+  color: #564787;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p{
+  font-family: 'Georgia', serif;
+  color: #564787;
+  margin: 10px auto;
+  margin-top: 55px;
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  max-width: 100%;
+}
+
+.bloco {
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  background-color: #ad9fdd;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  margin-top: -30px;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+.home {
+  min-height: auto;
+}
+
+.lista-trabalhos {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.card-trabalho {
+  background: #ad9fdd;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.card-trabalho:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-trabalho h3 {
+  color: #564787;
+  font-family: Georgia, serif;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.card-trabalho p {
+  color: #444;
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.trabalho-autor {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.btn-ler {
+  display: inline-block;
+  margin-top: 20px;
+  background: #564787;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-ler:hover {
+  background: #45366f;
+}
+
+.trabalho-autor {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+</style>
+
+<div class="main-content">
+    <div class="bloco">
+        <h2 class="titulo-principal">Favoritos</h2>
+        <p>Gostou de um trabalho e quer salvá-lo? Aqui estão todas as suas histórias favoritadas.</p>
+    </div>
+    
+    <% if (trabalhos && trabalhos.length > 0) { %>
+      <% trabalhos.forEach(trabalho => { %>
+        <div class="lista-trabalhos">
+          <% trabalhos.forEach(trabalho => { %>
+            <div class="card-trabalho">
+              <div class="trabalho-autor">Publicado por <%= trabalho.autor %></div>
+              <h3><%= trabalho.titulo %></h3>
+              <p><%= trabalho.descricao %></p>
+              <a href="/works/<%= trabalho._id %>" class="btn-ler">Ler trabalho</a>
+            </div>
+            <% }) %>
+          </div>
+          <% }) %>
+          <% } else { %>
+            <p>Nenhum favorito ainda.</p>
+            <% } %>
+          </div>
+
+<%- include('partials/footer') %>
