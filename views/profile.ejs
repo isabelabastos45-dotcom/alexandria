@@ -59,10 +59,6 @@
     font-family: 'Georgia', serif;
   }
 
-  /*#loginForm button:hover {
-  background-color: #33255f;
-}*/
-
   #input-file-foto {
     display: none;
   }
@@ -88,7 +84,6 @@
     transform: scale(0.98);
   }
 
-  /* --- Caixas de Informação --- */
   .info-box {
     background: #ffffff;
     padding: 15px 20px;
@@ -109,7 +104,6 @@
     color: #564787;
   }
 
-  /* --- Botões de Ação (Voltar e Sair) --- */
   .btn-voltar {
     display: inline-block;
     margin-top: 20px;
@@ -163,17 +157,9 @@
     <label for="input-file-foto" class="label-upload">Escolher Foto</label>
   </div>
   
-  <div class="info-box">
-    <p><strong>Nome:</strong> <span id="perfil-nome">Carregando...</span></p>
-  </div>
-  
-  <div class="info-box">
-    <p><strong>Usuário:</strong> <span id="perfil-username">Carregando...</span></p>
-  </div>
-  
-  <div class="info-box">
-    <p><strong>E-mail:</strong> <span id="perfil-email">Carregando...</span></p>
-  </div>
+  <div class="info-box"><p><strong>Nome:</strong> <%= usuario.username %></p></div>
+  <div class="info-box"><p><strong>Usuário:</strong> @<%= usuario.username %></p></div>
+  <div class="info-box"><p><strong>E-mail:</strong> <%= usuario.email %></p></div>
 
   <a href="/" class="btn-voltar">Voltar ao Início</a>
   <a href="/auth/logout" class="btn-logout" onclick="return fazerLogout(event)">Sair da Conta</a>
@@ -224,20 +210,15 @@
       }
   }
 
-  // 🌟 FUNÇÃO AJUSTADA: Limpa o front-end e permite o redirecionamento ao servidor para limpar a sessão
   function fazerLogout(event) {
       if (confirm("Tem certeza que deseja sair da conta?")) {
-          // Limpa a sessão local e dados residuais do navegador
           localStorage.removeItem("usuario");
           sessionStorage.clear();
           
           alert("Sessão encerrada localmente! Redirecionando...");
-          
-          // Retorna true para permitir que o link avance até o servidor (/auth/logout)
           return true; 
       }
       
-      // Cancela o clique caso o usuário mude de ideia no confirm
       event.preventDefault();
       return false;
   }

@@ -1,15 +1,10 @@
-/*######### INICIO #########*/
-/*remove os padrões do navegador*/      
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/*##################*/
 
-
-/*######## ESTRUTURA BÁSICA ##########*/
-/*estrutura principal da pagina*/
 body {
     display: flex;
     flex-direction: column;
@@ -20,11 +15,7 @@ body {
     flex: 1;
     padding: 40px;
 }
-/*##################*/
 
-
-/*######## HOME ##########*/
-/*tela principal (home/index)*/
 .home {
     margin-top: 100px;
     display: flex;
@@ -32,4 +23,3 @@ body {
     align-items: center;
     gap: 15px;
 }
-/*##################*/
