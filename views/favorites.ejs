@@ -125,6 +125,28 @@ p{
   margin-bottom: 10px;
 }
 
+.barra-pesquisa {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.barra-pesquisa input {
+  width: 400px;
+  padding: 10px;
+  border: 2px solid #564787;
+  border-radius: 8px;
+}
+
+.barra-pesquisa button {
+  padding: 10px 20px;
+  background: #564787;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
 </style>
 
 <div class="main-content">
@@ -132,23 +154,33 @@ p{
         <h2 class="titulo-principal">Favoritos</h2>
         <p>Gostou de um trabalho e quer salvá-lo? Aqui estão todas as suas histórias favoritadas.</p>
     </div>
+
+    <form action="/favorites" method="GET" class="barra-pesquisa">
+      <input
+      type="text"
+      name="q"
+      placeholder="Pesquisar trabalho..."
+      value="<%= pesquisa || '' %>"
+      >
+      <button type="submit">Pesquisar</button>
+    </form>
     
     <% if (trabalhos && trabalhos.length > 0) { %>
-      <% trabalhos.forEach(trabalho => { %>
-        <div class="lista-trabalhos">
-          <% trabalhos.forEach(trabalho => { %>
-            <div class="card-trabalho">
-              <div class="trabalho-autor">Publicado por <%= trabalho.autor %></div>
-              <h3><%= trabalho.titulo %></h3>
-              <p><%= trabalho.descricao %></p>
-              <a href="/works/<%= trabalho._id %>" class="btn-ler">Ler trabalho</a>
-            </div>
-            <% }) %>
+      <div class="lista-trabalhos">
+        
+        <% trabalhos.forEach(trabalho => { %>
+          <div class="card-trabalho">
+            <div class="trabalho-autor">Publicado por <%= trabalho.autor %></div>
+            <h3><%= trabalho.titulo %></h3>
+            <p><%= trabalho.descricao %></p>
+            
+            <a href="/works/<%= trabalho._id %>" class="btn-ler">Ler trabalho</a>
           </div>
           <% }) %>
-          <% } else { %>
-            <p>Nenhum favorito ainda.</p>
-            <% } %>
-          </div>
+        </div>
+        <% } else { %>
+          <p>Nenhum favorito ainda.</p>
+          <% } %>
+        </div>
 
 <%- include('partials/footer') %>

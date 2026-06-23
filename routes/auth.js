@@ -80,8 +80,7 @@ router.post("/login", async (req, res) => {
         }
 
         req.session.usuario = {
-            id: usuario._id,
-            nome: usuario.username,
+            _id: usuario._id,
             username: usuario.username,
             email: usuario.email
         };

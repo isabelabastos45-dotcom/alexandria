@@ -5,7 +5,7 @@ function auth(req, res, next) {
         });
     }
 
-    req.usuarioId = req.session.usuario.id;
+    req.usuarioId = req.session.usuario._id;
     next();
 }
 

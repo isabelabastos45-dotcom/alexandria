@@ -4,9 +4,20 @@ var router = express.Router();
 const Trabalho = require('../models/works');
 
 router.get('/', async (req, res) => {
-  const trabalhos = await Trabalho.find().populate('autor');
-  
-  res.render('works', { trabalhos });
+  const pesquisa = req.query.q;
+  let filtro = {};
+  if (pesquisa) {
+    filtro.titulo = {
+      $regex: pesquisa,
+      $options: 'i'
+    };
+  }
+  const trabalhos = await Trabalho.find(filtro);
+
+  res.render('works', {
+    trabalhos,
+    pesquisa
+  });
 });
 
 router.get('/:id', async (req, res) => {

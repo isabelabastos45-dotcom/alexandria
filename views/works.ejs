@@ -124,6 +124,28 @@ p{
   margin-bottom: 10px;
 }
 
+.barra-pesquisa {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.barra-pesquisa input {
+  width: 400px;
+  padding: 10px;
+  border: 2px solid #564787;
+  border-radius: 8px;
+}
+
+.barra-pesquisa button {
+  padding: 10px 20px;
+  background: #564787;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
 </style>
 
 <div class="main-content">
@@ -134,6 +156,16 @@ p{
         </p>
     </div>
 </div>
+
+<form action="/works" method="GET" class="barra-pesquisa">
+  <input
+    type="text"
+    name="q"
+    placeholder="Pesquisar trabalho..."
+    value="<%= pesquisa || '' %>"
+  >
+  <button type="submit">Pesquisar</button>
+</form>
 
 <div class="main-content">
   <h2>Trabalhos postados</h2>
